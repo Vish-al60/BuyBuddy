@@ -7,6 +7,13 @@ import authRoutes from "./routes/authRoute.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
+import { fileURLToPath } from 'url';
+/// khud se liha hai
+import path from 'path';
+/// khud se liha
+
+
+
 
 
 //configure env
@@ -33,6 +40,26 @@ app.use("/api/v1/product", productRoutes);
 // app.get("/", (req, res) => {
 //   res.send("<h1>Welcome to ecommerce app</h1>");
 // });
+
+///khud se add kiya hai    
+// app.use(express.static(path.join(__dirname, 'build')));
+
+// app.get('/', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
+///khud se add kiya hia beech me
+
+//static files{
+  const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname,'./client/build')));
+
+app.get('*',function(req,res){
+
+    res.sendFile(path.join(__dirname,'./client/build/index.html'));
+})
+
 
 
 //PORT
