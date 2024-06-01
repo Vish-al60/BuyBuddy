@@ -7,13 +7,11 @@
   "engines": {
     "node": ">=20.12.2"
   },
- 
   "scripts": {
     "start": "node server/server.js",
     "build": "cd client && npm install && npm run build",
     "postinstall": "npm run build"
   },
-  
   "keywords": [],
   "author": "Vishal",
   "license": "ttt",
