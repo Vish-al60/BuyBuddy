@@ -50,10 +50,10 @@ app.use("/api/v1/product", productRoutes);
 ///khud se add kiya hia beech me
 
 //static files{
-  const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+//    const __filename = fileURLToPath(import.meta.url);
+//  const __dirname = path.dirname(__filename);
 
-app.use(express.static(path.join(__dirname,'./client/build')));
+ app.use(express.static(path.join(__dirname,'./client/build')));
 
 app.get('*',function(req,res){
 
