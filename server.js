@@ -50,15 +50,23 @@ app.use("/api/v1/product", productRoutes);
 ///khud se add kiya hia beech me
 
 //static files{
-    const __filename = fileURLToPath(import.meta.url);
- const __dirname = path.dirname(__filename);
+     const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
 
- app.use(express.static(path.join(__dirname,'./client/build')));
+//  app.use(express.static(path.join(__dirname,'./client/build')));
 
-app.get('*',function(req,res){
+// app.get('*',function(req,res){
 
-    res.sendFile(path.join(__dirname,'./client/build/index.html'));
-})
+//     res.sendFile(path.join(__dirname,'./client/build/index.html'));
+// })
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// Catch-all handler to send back the React index.html file for all requests
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
 
 
 
